@@ -56,9 +56,9 @@ export default function App() {
         setfilteredrest(filterResturant);
       }}>Search</button>
       </div>
-      <button className="filter-button" onClick={handleClick}>Top rated Food</button>
+      <button className="filter-button" onClick={handleClick}>Filter</button>
       </div>
     <div  class="body-direction"> {restaurantComponents}</div>
     </>
-  );
+  )
 }
