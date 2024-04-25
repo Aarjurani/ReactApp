@@ -22,10 +22,10 @@ export default function Body(props) {
           alt={name}
         />
         <div className="content">
-          <h4>{name}</h4>
-          <p>{cuisines.join(", ")}</p>
-          <h6>({avgRating || avgRatingString})star</h6>
-          <h6>{costForTwo} min</h6>
+          <h3>{name}</h3>
+          <h6>{cuisines.slice(0, 5).join(", ")}</h6>
+          <h5 className="rating">({avgRating || avgRatingString}) star</h5>
+          <h4>{costForTwo} min</h4>
         </div>
       </div>
     </>

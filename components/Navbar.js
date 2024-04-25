@@ -3,15 +3,15 @@ export default function Navbar(){
     return(
         <header>
         <div className="logo">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlrMRiAFbFl7G3eqW28xIQrPcm14qWUNdVSI_3t7cGfR6tQnnvWUbrOBh4RA&s" alt="Logo"/>
-  </div>
-  <nav>
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/002/101/465/small/fc-black-gold-letter-logo-elegant-design-initial-letter-logo-cf-and-fc-isolated-on-white-background-vector.jpg"/>
+          </div>
+    <nav>
     
     <ul>
-      <li><a href="#">home</a></li>
-      <li><a href="#">product</a></li>
-      <li><a href="#">contact</a></li>
-      <li><a href="#">CART</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Product</a></li>
+      <li><a href="#">Contact</a></li>
+     
     </ul>
   </nav></header>
     )
