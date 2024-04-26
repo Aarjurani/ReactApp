@@ -19,22 +19,46 @@ export default function App() {
     );
     const json = await data.json();
     console.log(json);
-    setresobj(
-      // json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants[0].info.name
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
-    setfilteredrest(
-       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    //  json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants[0].info.name
-    );
+    setresobj(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    setfilteredrest(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants );
 
   };
 
   
-  function handleClick() {
-    let result = resObj.filter((filtered) => filtered.info.avgRating > 4);
-    setfilteredrest(result);
-  }
+  
+
+  const handleSearch = () => {
+    const filteredRestaurants = restaurants.filter((restaurant) =>
+      restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setfilteredrest(filteredRestaurants);
+  };
+
+  const handleFilter = () => {
+    const filteredRestaurants = restaurants.filter((restaurant) => restaurant.info.avgRating > 4);
+    setfilteredrest(filteredRestaurants);
+  };
+
+  const renderFilterSection =(
+   <div className="filter-direction">
+        <div className="search">
+          <input
+            type="text"
+            className="searchBox"
+            placeholder="Type here"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <button className="button" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
+        <button className="filter-button" onClick={handleFilter}>
+          Filter
+        </button>
+      </div>
+    );
+  
 
   const restaurantComponents = filteredrest.map((restaurant) => (
     <Body key={restaurant.info.id} resdataprop={restaurant} />
@@ -44,22 +68,8 @@ export default function App() {
   return (
     <>
     
-      <Navbar />
-      <div class="filter-direction">
-      <div className="search">
-      <input type="text" className="searchBox" placeholder="type-here" value={searchText} onChange={(e)=>{
-        setSearchText(e.target.value);
-      }}></input>
-      <button className="button" onClick={()=>{
-        console.log(searchText)
-        const filterResturant = resObj.filter((resname)=>
-          resname.info.name.toLowerCase().includes(searchText.toLowerCase())
-        )
-        setfilteredrest(filterResturant);
-      }}>Search</button>
-      </div>
-      <button className="filter-button" onClick={handleClick}>Filter</button>
-      </div>
+    <Navbar />
+    {renderFilterSection}  
     <div  class="body-direction"> {restaurantComponents}</div>
     </>
   )
