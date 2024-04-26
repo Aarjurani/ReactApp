@@ -28,18 +28,18 @@ export default function App() {
   
 
   const handleSearch = () => {
-    const filteredRestaurants = restaurants.filter((restaurant) =>
+    const filteredRestaurants = resObj.filter((restaurant) =>
       restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
     );
     setfilteredrest(filteredRestaurants);
   };
 
   const handleFilter = () => {
-    const filteredRestaurants = restaurants.filter((restaurant) => restaurant.info.avgRating > 4);
+    const filteredRestaurants = resObj.filter((restaurant) => restaurant.info.avgRating > 4);
     setfilteredrest(filteredRestaurants);
   };
 
-  const renderFilterSection =(
+  const renderFilterSection =()=>(
    <div className="filter-direction">
         <div className="search">
           <input
@@ -54,10 +54,11 @@ export default function App() {
           </button>
         </div>
         <button className="filter-button" onClick={handleFilter}>
-          Filter
+          Filter 4+ Rating
         </button>
       </div>
     );
+  
   
 
   const restaurantComponents = filteredrest.map((restaurant) => (
@@ -69,7 +70,7 @@ export default function App() {
     <>
     
     <Navbar />
-    {renderFilterSection}  
+    {renderFilterSection()}  
     <div  class="body-direction"> {restaurantComponents}</div>
     </>
   )
