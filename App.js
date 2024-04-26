@@ -20,10 +20,12 @@ export default function App() {
     const json = await data.json();
     console.log(json);
     setresobj(
+      // json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants[0].info.name
       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
     );
     setfilteredrest(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+       json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+    //  json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants[0].info.name
     );
 
   };

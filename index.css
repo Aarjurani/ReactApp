@@ -100,13 +100,13 @@ body {
   .content h3{
     font-size:1.1rem ;
     
-    margin: 3px 1px 4px 1px;
+    margin: 3px 1px 2px 1px;
     
   }
   .rating{
     background-color:rgb(40, 136, 40) ;
     width: fit-content;
-    padding: 2px 7px 7px 7px ;
+    padding: 2px 7px 3px 7px ;
     color: white;
   }
   
